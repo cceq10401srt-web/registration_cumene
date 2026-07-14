@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>異丙苯製造程序本土化係數工作說明會議 - 線上報名</title>
+<style>
+  :root {
+    --primary: #1b5e8a;
+    --primary-dark: #123f5c;
+    --accent: #e8a33d;
+    --bg: #f4f7fa;
+    --card-bg: #ffffff;
+    --border: #dbe3ea;
+    --text: #24313d;
+    --text-muted: #5c6b78;
+    --danger: #c0392b;
+    --success: #2e7d4f;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: "Microsoft JhengHei", "PingFang TC", "Noto Sans TC", "Heiti TC", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+  }
+  .page {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 24px 16px 60px;
+  }
+  header.hero {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+    color: #fff;
+    border-radius: 14px;
+    padding: 32px 28px;
+    margin-bottom: 24px;
+    box-shadow: 0 6px 18px rgba(18,63,92,0.18);
+  }
+  header.hero .tag {
+    display: inline-block;
+    background: rgba(255,255,255,0.18);
+    border: 1px solid rgba(255,255,255,0.35);
+    border-radius: 999px;
+    padding: 4px 14px;
+    font-size: 13px;
+    margin-bottom: 12px;
+  }
+  header.hero h1 {
+    margin: 0 0 8px;
+    font-size: 26px;
+    line-height: 1.4;
+  }
+  header.hero p.subtitle {
+    margin: 0;
+    font-size: 15px;
+    opacity: 0.92;
+  }
+  .card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px 26px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 8px rgba(20,40,60,0.04);
+  }
+  .card h2 {
+    font-size: 18px;
+    color: var(--primary-dark);
+    margin: 0 0 14px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .info-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .info-list li {
+    display: flex;
+    gap: 10px;
+    padding: 8px 0;
+    border-bottom: 1px dashed var(--border);
+    font-size: 15px;
+  }
+  .info-list li:last-child { border-bottom: none; }
+  .info-list .label {
+    flex: 0 0 96px;
+    color: var(--primary-dark);
+    font-weight: 600;
+  }
+  .info-list a { color: var(--primary); word-break: break-all; }
+  .desc p {
+    font-size: 14.5px;
+    color: var(--text);
+    text-align: justify;
+    margin: 0 0 12px;
+  }
+  table.agenda {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14.5px;
+  }
+  table.agenda th, table.agenda td {
+    border: 1px solid var(--border);
+    padding: 10px 12px;
+    text-align: center;
+  }
+  table.agenda th {
+    background: #eaf2f8;
+    color: var(--primary-dark);
+    width: 32%;
+  }
+  table.agenda td { text-align: left; }
+
+  form .field {
+    margin-bottom: 16px;
+  }
+  form label {
+    display: block;
+    font-size: 14.5px;
+    font-weight: 600;
+    color: var(--primary-dark);
+    margin-bottom: 6px;
+  }
+  form label .req { color: var(--danger); margin-left: 2px; }
+  form input[type="text"],
+  form input[type="tel"],
+  form input[type="email"] {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font-size: 15px;
+    font-family: inherit;
+    background: #fbfcfd;
+  }
+  form input:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(27,94,138,0.12);
+  }
+  .btn-submit {
+    width: 100%;
+    padding: 13px;
+    background: var(--primary);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background .15s;
+  }
+  .btn-submit:hover { background: var(--primary-dark); }
+  .btn-submit:disabled { background: #9fb3c2; cursor: not-allowed; }
+
+  .status-msg {
+    margin-top: 14px;
+    padding: 12px 14px;
+    border-radius: 8px;
+    font-size: 14.5px;
+    display: none;
+  }
+  .status-msg.success { display: block; background: #e7f5ec; color: var(--success); border: 1px solid #b9e0c6; }
+  .status-msg.error { display: block; background: #fbeceb; color: var(--danger); border: 1px solid #f0bcb7; }
+  .status-msg.loading { display: block; background: #eef3f7; color: var(--text-muted); border: 1px solid var(--border); }
+
+  /* Modal */
+  .modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(15,25,35,0.55);
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+    padding: 16px;
+  }
+  .modal-overlay.open { display: flex; }
+  .modal-box {
+    background: #fff;
+    border-radius: 12px;
+    max-width: 620px;
+    width: 100%;
+    max-height: 86vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.25);
+  }
+  .modal-header {
+    padding: 18px 22px;
+    border-bottom: 1px solid var(--border);
+    background: #f7fafc;
+  }
+  .modal-header h3 {
+    margin: 0;
+    font-size: 17px;
+    color: var(--primary-dark);
+  }
+  .modal-body {
+    padding: 18px 22px;
+    overflow-y: auto;
+    font-size: 13.8px;
+    color: var(--text);
+  }
+  .modal-body p { margin: 0 0 10px; text-align: justify; }
+  .modal-body ol { padding-left: 20px; margin: 0 0 10px; }
+  .modal-body li { margin-bottom: 8px; text-align: justify; }
+  .modal-footer {
+    padding: 16px 22px;
+    border-top: 1px solid var(--border);
+    background: #fafbfc;
+  }
+  .agree-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    margin-bottom: 14px;
+    font-size: 14px;
+  }
+  .agree-row input { margin-top: 3px; }
+  .modal-actions {
+    display: flex;
+    gap: 10px;
+  }
+  .btn-secondary {
+    flex: 1;
+    padding: 11px;
+    background: #eef1f4;
+    color: var(--text);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font-size: 15px;
+    cursor: pointer;
+  }
+  .btn-confirm {
+    flex: 1;
+    padding: 11px;
+    background: var(--primary);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  .btn-confirm:disabled { background: #b7c6d1; cursor: not-allowed; }
+
+  footer.note {
+    text-align: center;
+    font-size: 12.5px;
+    color: var(--text-muted);
+    margin-top: 20px;
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header class="hero">
+    <span class="tag">會議報名</span>
+    <h1>異丙苯製造程序本土化係數工作說明會議</h1>
+    <p class="subtitle">敬邀公私場所代表撥冗出席，並請事先完成線上報名</p>
+  </header>
+
+  <section class="card">
+    <h2>會議資訊</h2>
+    <ul class="info-list">
+      <li><span class="label">開會時間</span><span>115年7月29日（星期三）上午10時00分</span></li>
+      <li><span class="label">開會地點</span><span>採視訊會議，會議連結：<a href="https://reurl.cc/Z8OVyp" target="_blank" rel="noopener">https://reurl.cc/Z8OVyp</a></span></li>
+    </ul>
+  </section>
+
+  <section class="card desc">
+    <h2>會議內容</h2>
+    <p>固定污染源空氣污染物（含有害空氣污染物）排放量計算為管制作業之基礎工作，計算推估方式包括(1)連續自動監測結果、(2)檢測結果、(3)自廠係數、(4)公告係數、(5)中央機關認可係數；其中「公告係數」推估排放量具有成本低、效率高及更為簡便等優點。現行公告係數多引用國外排放係數資料（如US EPA AP-42），存在一定程度的不確定性，因此建立國內具代表性之本土化排放係數，逐步取代國外係數為精進固定源排放量之重要工作。</p>
+    <p>本會議就「異丙苯製造程序」說明本土化排放係數建置流程以及 貴公司須協助及配合事項，敬請各位先進撥冗出席。</p>
+  </section>
+
+  <section class="card">
+    <h2>會議議程</h2>
+    <table class="agenda">
+      <thead>
+        <tr><th>時間</th><th>議題</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>10：00～10：05</td><td>主席致詞</td></tr>
+        <tr><td>10：05～10：30</td><td>本土化係數工作說明會議簡報說明（工研院報告）</td></tr>
+        <tr><td>10：30～11：50</td><td>綜合討論</td></tr>
+        <tr><td>11：50～12：00</td><td>結論</td></tr>
+        <tr><td>12：00</td><td>散會</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="card">
+    <h2>會議報名</h2>
+    <form id="regForm" novalidate>
+      <div class="field">
+        <label for="controlNo">公私場所管制編號<span class="req">*</span></label>
+        <input type="text" id="controlNo" name="controlNo" required autocomplete="off">
+      </div>
+      <div class="field">
+        <label for="orgName">公私場所名稱<span class="req">*</span></label>
+        <input type="text" id="orgName" name="orgName" required autocomplete="off">
+      </div>
+      <div class="field">
+        <label for="name">姓名<span class="req">*</span></label>
+        <input type="text" id="name" name="name" required autocomplete="name">
+      </div>
+      <div class="field">
+        <label for="jobTitle">職稱<span class="req">*</span></label>
+        <input type="text" id="jobTitle" name="jobTitle" required autocomplete="organization-title">
+      </div>
+      <div class="field">
+        <label for="phone">電話<span class="req">*</span></label>
+        <input type="tel" id="phone" name="phone" required autocomplete="tel" placeholder="例：0912345678 或 02-12345678">
+      </div>
+      <div class="field">
+        <label for="email">EMAIL<span class="req">*</span></label>
+        <input type="email" id="email" name="email" required autocomplete="email">
+      </div>
+      <button type="submit" class="btn-submit" id="submitBtn">送出報名</button>
+      <div id="statusMsg" class="status-msg"></div>
+    </form>
+  </section>
+
+  <footer class="note">如報名過程有任何問題，請聯繫本計畫工作團隊。</footer>
+</div>
+
+<!-- 個資同意書 Modal -->
+<div class="modal-overlay" id="consentOverlay">
+  <div class="modal-box">
+    <div class="modal-header">
+      <h3>個人資料蒐集、處理及利用告知事項</h3>
+    </div>
+    <div class="modal-body">
+      <p>本院為了蒐集、處理及利用基於執行環境部委託「固定污染源有害空氣污染物管制計畫」（以下簡稱本計畫）事由您所提供，或未來基於各種事由將提供的個人資料，謹先告知下列事項：</p>
+      <ol>
+        <li><strong>蒐集目的：</strong>本計畫蒐集個人資料之目的為辦理會議管理相關作業，包括「異丙苯製造程序本土化係數工作說明會議」之報名、會議通知、聯繫及出席確認等事項。</li>
+        <li><strong>個人資料類別：</strong>本計畫所蒐集之個人資料，屬於可識別個人之相關資料，包括公私場所管制編號、公私場所名稱、姓名、職稱、工作聯絡電話、電子郵件地址，以及其他報名作業所需資料。</li>
+        <li><strong>利用期間：</strong>於本計畫執行期間至計畫結案為止。</li>
+        <li><strong>利用地區：</strong>執行本計畫之計畫團隊個人資料主機、相關網路伺服器主機所在地。</li>
+        <li><strong>利用者及利用方式：</strong>執行本計畫之計畫團隊以電子郵件、電話或書面等方式利用，作為本次會議通知、聯繫所用，不作其他目的之使用。</li>
+        <li><strong>您得以書面主張下列權利：</strong>
+          <ol style="list-style: none; padding-left: 8px; margin-top: 6px; margin-bottom: 0;">
+            <li>(1) 查詢或請求閱覽。</li>
+            <li>(2) 請求製給複製本。</li>
+            <li>(3) 請求補充或更正。</li>
+            <li>(4) 請求停止蒐集、處理或利用。</li>
+            <li>(5) 請求刪除。</li>
+          </ol>
+        </li>
+        <li>您若不同意本告知暨同意書，將可能無法完成本次會議報名作業。</li>
+        <li>對本院所持有您的個人資料，本院會按照政府相關法規保密並予以妥善保管。</li>
+      </ol>
+      <p>本人已詳閱並瞭解上述告知事項，同意提供並授權蒐集、處理及利用本人之個人資料。</p>
+    </div>
+    <div class="modal-footer">
+      <div class="agree-row">
+        <input type="checkbox" id="agreeCheck">
+        <label for="agreeCheck">我已閱讀並同意上述個人資料蒐集、處理及利用告知事項</label>
+      </div>
+      <div class="modal-actions">
+        <button type="button" class="btn-secondary" id="cancelBtn">取消</button>
+        <button type="button" class="btn-confirm" id="confirmBtn" disabled>同意並送出報名</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // 請將此網址替換為您部署 Google Apps Script 網頁應用程式後取得的 Web App URL
+  const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxKStdHUUjHmmpIEbjJbZlfFeYGURAde_GNqkZ_7SaJuKoghSZSOzZkeLsIc0LT9snP/exec';
+  const MEETING_KEY = 'cumene';
+  // 須與 AppsScript_Code.gs 中的 ACCESS_TOKEN 完全一致
+  const ACCESS_TOKEN = 'tSaI2221556**';
+
+  const form = document.getElementById('regForm');
+  const submitBtn = document.getElementById('submitBtn');
+  const statusMsg = document.getElementById('statusMsg');
+  const overlay = document.getElementById('consentOverlay');
+  const agreeCheck = document.getElementById('agreeCheck');
+  const confirmBtn = document.getElementById('confirmBtn');
+  const cancelBtn = document.getElementById('cancelBtn');
+
+  let pendingData = null;
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    statusMsg.className = 'status-msg';
+    statusMsg.textContent = '';
+
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
+
+    pendingData = {
+      meeting: MEETING_KEY,
+      token: ACCESS_TOKEN,
+      controlNo: document.getElementById('controlNo').value.trim(),
+      orgName: document.getElementById('orgName').value.trim(),
+      name: document.getElementById('name').value.trim(),
+      jobTitle: document.getElementById('jobTitle').value.trim(),
+      phone: document.getElementById('phone').value.trim(),
+      email: document.getElementById('email').value.trim()
+    };
+
+    agreeCheck.checked = false;
+    confirmBtn.disabled = true;
+    overlay.classList.add('open');
+  });
+
+  agreeCheck.addEventListener('change', function () {
+    confirmBtn.disabled = !agreeCheck.checked;
+  });
+
+  cancelBtn.addEventListener('click', function () {
+    overlay.classList.remove('open');
+    pendingData = null;
+  });
+
+  confirmBtn.addEventListener('click', function () {
+    if (!agreeCheck.checked || !pendingData) return;
+    overlay.classList.remove('open');
+    submitRegistration(pendingData);
+  });
+
+  function submitRegistration(data) {
+    submitBtn.disabled = true;
+    statusMsg.className = 'status-msg loading';
+    statusMsg.textContent = '報名資料送出中，請稍候...';
+
+    fetch(SCRIPT_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+      body: JSON.stringify(data)
+    })
+      .then(function () {
+        statusMsg.className = 'status-msg success';
+        statusMsg.textContent = '報名已送出，感謝您的報名！';
+        form.reset();
+        submitBtn.disabled = false;
+      })
+      .catch(function () {
+        statusMsg.className = 'status-msg error';
+        statusMsg.textContent = '送出失敗，請確認網路連線後再試一次。';
+        submitBtn.disabled = false;
+      });
+  }
+</script>
+</body>
+</html>
